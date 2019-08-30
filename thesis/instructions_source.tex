@@ -1,0 +1,491 @@
+\begin{center}
+ INSTRUCTIONS TO SETUP RASPBIAN FOR THE \emph{THEBOX} EXPERIMENT
+
+\end{center}
+
+
+I will assume you ''are'' using linux as a development platform, therefore I will assume
+as well that you know how to open a Terminal and how to enter commands. In this document I describe roughly the steps necesary to 
+get TheBox working from scratch.
+
+
+ \section{Download and Install Raspbian}
+    \begin{enumerate}
+    \item Download the latest raspbian disk image from:
+    
+         \verb=     https://www.raspberrypi.org/downloads/=
+    \item Identify your SD card and Install Raspbian.\\
+     Before plugging the SD card in the slot type in the terminal.
+     
+         \verb=     > ls /dev/sd*=\\
+     Observe the output, it should look something like \emph{"/dev/sda"}. Say,
+     
+         \verb=     /dev/sda=\\
+         \verb=     /dev/sda1=\\
+         \verb=     /dev/sda2=\\
+         %\emph{(/dev/sdXn)}\\
+     In this example, \emph{/dev/sda} is the device and \emph{/dev/sda1} and \emph{/dev/sda2} are partitions.
+     Then plug the SD card and repeat the previous command, the new elements in the output
+     represent your SD card. The following is an example, change accordingly.
+     
+         \verb=     /dev/sdb=\\
+         \verb=     /dev/sdb1=\\
+         \verb=     /dev/sdb2=\\
+     Make sure it is unmounted by typing.
+     
+         \verb=     > sudo umount /dev/sdb1=\\
+         \verb=     > sudo umount /dev/sdb2=\\
+    \item Now you can install Raspbian. From the folder where you downloaded the raspbian image.
+    
+         \verb+     > sudo dd if=./raspbian-image.img of=/dev/sdb bs=4M+\\
+     if you have the raspbian on a different location just give the absolute path. \verb+bs=4M+
+     may sometimes not work, if that's your case try with \verb+bs=1M+
+     Wait until it is finished and then remove the SD card and plug it into your Raspberry Pi.
+  \end{enumerate}
+  \section{Power Up and initial Setup}
+  
+  Power Up the Raspberry Pi by plugging a proper Power Supply Unit.
+  
+  \subsection{With a Screen}
+%   If you are using a screen  use only this \emph{first} instruction but in the Raspberry Pi. If you are connecting from another computer 
+%     you are going to discover the RPi's IP address but first you need the IP address of
+%     the \emph{ETHERNET} card in the computer that you are using for development. Plug an ethernet cable between the RPi and your computer for development. 
+%     Go to a terminal and type the following command.\\
+    Finding your computer's IP address is very straightforward. Just open a terminal and type:\\
+    \verb=     > ifconfig=\\
+    The output should give you a list of the network interfaces. Look for \verb=eth0= or something like that. If you don't feel comfortably about this
+    do some research with google first until you have a better idea of what you are doing. Ignore \verb=lo= and \verb=wlan0=. 
+    Take pen and paper and write down this, right after \verb=inet addr:= is the IP address, please be aware that the values 
+    presented here are examples only.\\
+    \verb=	inet addr:192.168.0.7=\\
+    You can also do this in one single command:\\
+    \verb=     > ifconfig eth0 | grep 'addr:' | awk '{print $2}' \=\\
+    \verb=       | sed 's/addr://g'=\\    
+    If you use the previous instruction just make sure that \verb=eth0= is the actual ethernet adapter that you are using for this connection. Following 
+    this example, the output should be just:\\
+    \verb=	192.168.0.7=\\
+  \subsection{Remotely}
+  \begin{enumerate}
+   
+   \item If you want to work remotely, which I recommend since less resources of the Pi will be used, discovering the Raspberry Pi's IP address can be 
+   a bit more dificult.
+    
+    Now use  \verb=nmap= in order to scan though all the possible IP addressess and discover if any is active.\\
+    \verb=     > nmap -sn 192.168.0.7/24=  \\
+    Unfortunately at the moment of writing this document I don't have a Raspberry Pi at hand so I just used my laptop and my current ip is 
+    \textbf{ xxx.xxx.97.221}. The output will be something like this. 
+    \begin{verbatim}
+Starting Nmap 6.40 ( http://nmap.org ) at 2015-12-09 18:25 CLT
+Nmap scan report for xxx.xxx.97.0
+Host is up (0.0021s latency).
+Nmap scan report for xxx.xxx.97.1
+Host is up (0.0016s latency).
+.
+.
+.
+Nmap scan report for xxx.xxx.97.248
+Host is up (0.0013s latency).
+Nmap scan report for csp2.lco.cl (xxx.xxx.97.251)
+Host is up (0.00081s latency).
+Nmap done: 256 IP addresses (32 hosts up) scanned in 3.23 seconds
+\end{verbatim}
+    If you don't get something similar try again and if still nothing do some research on the Internet.
+    Most likely you will get less entries as output. 
+    
+    
+    When I was looking for the RPi's IP it turned out to be:\\
+    \verb=     10.42.0.91=\\
+    It will be easy to tell once you have the output of nmap.
+    
+   
+    \item Next step is connect through \verb=SSH= to the RPi. The latest \emph{Raspbian} comes with SSH activated by default.\\
+    \verb=     > ssh pi@10.42.0.91=\\
+    The default password is \verb=raspberry=.
+   \item From now on most of the commands will be on a RPi's terminal, either from a screen or from the development computer through SSH.
+    If you are using a screen (and keyboard) connected to the RPi \verb=raspi-config= will pop up automatically during boot, if not type:\\
+	  \verb=     > sudo raspi-config=\\
+
+    \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.7\textwidth,bb=0 0 724 486]{./img/a1-raspi-config-0.png}
+ % a1-raspi-config-0.png: 724x486 pixel, 72dpi, 25.54x17.15 cm, bb=0 0 724 486
+ \caption{This is the first raspi-config screen, from here we will use option 1,2,5 and 9.}
+ \label{fig:a1-raspi-config}
+\end{figure}
+
+%    \subsection{With a Screen}\label{sect:withscreen}
+    
+    \item Inital Setup with raspi-config will requiere some data which you should have at hand. Is important that you first check
+    the RPi's specific documentation. Right now you will do the following steps in raspi-config
+    \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.7\textwidth,bb=0 0 724 486]{./img/a1-raspi-config-advanced.png}
+ % a1-raspi-config-advanced.png: 724x486 pixel, 72dpi, 25.54x17.15 cm, bb=0 0 724 486
+ \caption{Select option 9 in the main menu to select one of the Advanced Options displayed here.}
+ \label{fig:a1-raspi-config-advanced}
+\end{figure}
+
+    \begin{itemize}
+     \item Expand filesystem\\ Simply hit enter in the first option and say yes to all.
+     \item Set New password for user \verb=pi=\\ This is an important safety measure, option 2.
+     \item Set timezone\\ Use option 5.
+     \item Enable I2C\\ Use option A7, Fig. \ref{fig:a1-raspi-config-advanced}.
+     
+   
+    \end{itemize}
+    Later you will need to run raspi-config again in order to change the Hostname.
+   \end{enumerate}
+   
+   
+
+  \section{Advanced Setup}
+  \subsection{Upgrade and Network Settings}
+ \begin{enumerate}
+
+  \item At this point we will update the repositories lists and upgrade the system to its latest stable version.\\
+  \verb=     > sudo apt-get update=\\
+  %\verb=     > sudo apt-get upgrade=\\
+  \verb=     > sudo reboot=\\
+  We do this step now because in the past this has failed so it is early enough to go back and start over, of course if it fails once I woud recommend
+  not doing it next time. The current version should be already a stable one.
+  \item Now the time is right to configure the network properties. I prefer to use \verb=vim= as text editor, so we will jump ahead a little bit 
+  and install it. You can skip this and install or use any other text editor.\\
+  \verb=     > sudo apt-get install vim=
+  
+  We will need to change the hostname first so we go again to \verb=raspi-config= and change the computer hostname to \verb=viscacha=.
+  We don't do this the first time we run raspi-config because that causes problems when trying to login again if we haven't set the ip 
+  address correctly. Remember that the information that you are about to introduce must be obtained from an authorized person of your institution.
+  
+  \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.7\textwidth,bb=0 0 724 486]{./img/a1-raspi-config-hostname.png}
+ % a1-raspi-config-hostname.png: 724x486 pixel, 72dpi, 25.54x17.15 cm, bb=0 0 724 486
+ \caption{hostname}
+ \label{fig:a1-hostname}
+\end{figure}
+
+  
+  Now edit \verb=/etc/network/interfaces=\\
+  \verb=     > sudo vim /etc/network/interfaces=\\
+  It should look like this:\\
+  \begin{verbatim}
+auto lo
+iface lo inet loopback
+
+auto eth0
+allow-hotplug eth0
+iface eth0 inet static
+
+address 134.76.204.166
+netmask 255.255.254.0
+network 134.76.204.0
+broadcast 134.76.255.255
+gateway 134.76.204.254
+  \end{verbatim}
+  
+  Beware that after this process you will not be able to access the RPi from your computer unless it is part of the internal Network of the 
+  department. So is OK to leave this process to the end. Also the specific numbers might change so talk with the IT person.
+  
+  If you are confidant that the values are correct, reboot the pi.
+\end{enumerate}
+
+  
+  \subsection{Manage Users}
+  As a safety measure it is recommended to not use default values, since in that case you will be opening the gates to potential outsiders with not so good intentions.
+ \begin{enumerate}
+ \item Create user "thebox" \\%password 42tQb8Qa4rSHrX5
+         \verb=     > sudo adduser thebox=\\
+     Enter a good password when requested. Don't forget to write it somewhere.
+  \item Add user to ``sudoers`` and to ``dialout'' groups.\\
+         \verb=     > sudo adduser thebox sudo=\\
+         \verb=     > sudo adduser thebox dialout=
+  \item Allow to run \verb=sudo= commands without password (Optional). We need to edit \verb=/etc/sudoers=\\
+         \verb=     > sudo visudo -f /etc/sudoers=\\
+     At the end add the following line
+     
+         \verb+     thebox ALL=(ALL) NOPASSWD: ALL+\\
+     Take advantage of the situation and delete the line corresponding to the \verb=pi= user.
+     For some reason it is only possible to edit this file with the \verb=visudo= editor,
+     in order to save it press \verb=Ctrl-O= and to exit \verb=Ctrl-X=. Check that the line was
+     successfully added. Now you can login as \verb=thebox= and continue.
+     
+     \end{enumerate}
+     
+     \subsection{Configure SSH}
+     \begin{enumerate}
+   \item Create ssh public keys. You might need to do this twice, in your development computer and in your RPi.\\   
+         \verb=     > ssh-keygen=\\
+     My suggestion would be don't enter any passphrase because otherwise you will need to
+     type in every time you want to access. Unless you need to work under the most strict security settings. No-passphrase is safe enough for now.
+   See image \ref{fig:a1-ssh-keygen} for an idea of what is should look like.
+     
+     \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.7\textwidth,keepaspectratio=true]{./img/a1-ssh-keygen.png}
+ % a1-ssh-keygen.png: 697x486 pixel, 72dpi, 24.59x17.15 cm, bb=0 0 697 486
+ \caption{Creation of public keys.}
+ \label{fig:a1-ssh-keygen}
+\end{figure}
+
+    \item Add the RPi's \verb=id_rsa.pub= to your development's \verb=authorized_keys=. and vice versa, this allows to connect without typing a password from the owner of
+    \verb=id_rsa.pub= that is being pasted into \verb=authorized_keys=. Execute this command both in the Raspberry Pi and in your development computer:
+    
+ 	\verb=     > cat ~/.ssh/id_rsa.pub | ssh user@server \=\\
+ 	\verb=       "cat >> ~/.ssh/authorized_keys"=\\
+     where \verb=user= and \verb=server= must be changed to the proper values. I'd suggest to do it the other way around as well. From your \verb=server= or development
+     computer type this:\\
+     \verb=     > cat ~/.ssh/id_rsa.pub | ssh thebox@viscacha "cat \=\\
+     \verb=       "cat >> ~/.ssh/authorized_keys"=\\
+     Hopefully this will be the last time you type your very safe password.
+     \item A very useful tool is \verb=sshfs= which allows you to mount a remote directory in your computer using \verb=ssh=. This is particularly useful when developing code.
+ \end{enumerate}
+ 
+ \section{Software Installation}
+  In this section I will explain what software you need to instal and how to do it. All the programs or tools in the following list
+  are required in TheBox experiment. The instalation process is tested to work in this sequence but use your criteria to tell if 
+  you can alter the order. If you just updated the repositories list in the previous step is not necesary to do it again, but if many days has passed do:\\
+     \verb=     > sudo apt-get update=\\
+  \begin{enumerate}
+   \item Install python.\\
+     \verb=     > sudo apt-get install python-dev python-numpy python-scipy \=\\
+     \verb=       python-matplotlib ipython=\\
+  \item Install apache2 and php5  \\
+     \verb=     > sudo apt-get install apache2 php5 libapache2-mod-php5=\\
+  Restart apache service with:\\
+     \verb=     > sudo service apache2 restart=\\
+  \item Install mysql.\\
+     \verb=     > sudo apt-get install mysql-server mysql-client php5-mysql \=\\
+     \verb=       python-mysqldb python-mysql.connector=\\
+  A password for the root user will be requested, so have it prepared or put one and write it down.
+  
+  If you want to edit advanced features you need to edit \verb=/etc/mysql/my.cnf=.
+  
+  \subsection{Configure MySQL}
+  This step is very important and creates users and provide grants for them in mysql. Note that this users are not \emph{system's users} they 
+  will work in MySQL's context only.
+  
+  \verb=     > mysql -u root -p<add password here>=\\
+  Now you will get a different prompt which means that you are no longer in the operating system environment but in mysql's. So, get familiar with
+  its sintaxis prior to move on.
+  \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.7\textwidth,keepaspectratio=true]{./img/a1-mysql.png}
+ % a1-mysql.png: 724x486 pixel, 72dpi, 25.54x17.15 cm, bb=0 0 724 486
+ \caption{This is what you should see.}
+ \label{fig:a1-mysql}
+\end{figure}
+\begin{enumerate}
+ \item First thing to do is to create two users.
+  \begin{verbatim}
+CREATE USER 'thebox'@'localhost' IDENTIFIED BY '<add password here>';
+CREATE USER 'vultur'@'localhost' IDENTIFIED BY '<add password here>';
+\end{verbatim}
+Put different passwords and take note of them.
+
+The \emph{grant} works similar to permissions in an operating system. The user \verb=thebox= will be able to do everything on the tables but is meant to
+work only from the inside of the system. On the other hand, the user \verb=vultur= will be able only to read the tables and that user can be used from
+the outside, i.e. web service.
+\begin{verbatim}
+GRANT ALL ON *.* TO 'thebox'@'localhost';
+GRANT SELECT ON *.* TO 'vultur'@'localhost';
+\end{verbatim}
+
+
+
+\item Create a database so you can place the tables.\\ \verb=CREATE DATABASE theBoxData;=\\
+And then \verb=exit= MySQL.
+
+\item If you are starting a completely new project you will not have a backup from where to restore the database, but in this case you do have one. 
+Make sure to obtain the right database backup, in this case is called \verb=theboxdata.sql=.
+Now import the database in the backup files to mysql.\\
+\verb=     > mysql -u root -p theBoxData < theboxdata.sql=
+
+Note that \verb=theboxdata.sql= is the name of this particular backup and it could change.
+
+
+If you don't have a backup you will need to create the tables by yourself. Login as mysql root user again and type this.
+
+\verb=USE theBoxData;=\\
+This is important because it tells MySQL where to place the new table.
+
+Make sure to type all the following text, until the semicolon.
+\begin{verbatim}
+ CREATE TABLE temperatureAndStatusPhaseTwo ( 
+ DATE TIMESTAMP NOT NULL, 
+ SENSOR_ONE DECIMAL(6,2), 
+ SENSOR_TWO DECIMAL(6,2), 
+ SENSOR_THREE DECIMAL(6,2), 
+ SENSOR_FOUR DECIMAL(6,2), 
+ SENSOR_FIVE DECIMAL(6,2), 
+ SENSOR_SIX DECIMAL(6,2), 
+ SENSOR_SEVEN DECIMAL(6,2), 
+ TH_SET_TEMP DECIMAL(6,2), 
+ TH_VAL_TEMP DECIMAL(6,2), 
+ TH_HEATER_ON BOOLEAN, 
+ AIR_HEATER_ON BOOLEAN
+ );
+\end{verbatim}
+
+
+Also, when running the temperature control system, some data is stored in another table. This data is used to keep track of the current
+status, should a reboot or crash happen. It will resume with the same settings afterwards.
+
+\begin{verbatim}
+CREATE TABLE thermalControl (
+TSET_TIME TIMESTAMP NOT NULL, 
+TSET_VALUE DECIMAL(6,2), 
+LAST_HEATER_STATUS BOOLEAN
+);
+\end{verbatim}   
+\end{enumerate}
+
+\item Several other tools are needed:
+\begin{enumerate}
+ \item ZMQ is a message broadcasting system (see \verb=http://zeromq.org/=)\\
+\verb=sudo apt-get install libzmq-dev python-zmq=
+ \item Python Serial is needed for reading serial ports using python. Very important.\\
+\verb=sudo apt-get install python-serial=
+\item INO is a command line Arduino tool. Allows you to upload code into the board using command line.\\
+\verb=git clone git://github.com/amperka/ino.git=\\
+\verb=cd ino=\\
+\verb=sudo make install=
+\item The Arduino that comes in the repositories is usually an old one. Doing this is usually better. But be aware that the newest version will
+be different, so I recommend you to go to \verb=www.arduino.cc= and get the correct link.\\
+\verb=wget http://downloads.arduino.cc/arduino-1.6.5-linux32.tar.xz=\\
+\verb=tar xf arduino-1.6.5-linux32.tar.xz=
+\item Other tools needed.\\
+\verb=sudo apt-get install python-rpi.gpio=\\
+\verb=sudo apt-get install python-setuptools=
+\end{enumerate}
+
+\item Compile USBswitch for Raspberry Pi. The SwitchBox is an USB controled switch, you plug it to a wall power outlet and then conect to it a
+device that you want to control. In order to control you need to send a signal through an USB port, since the protocol for sending such instructions are
+too complicated to developt one's own code it is easier to use their example but it comes pre-compiled for \verb=i386= architecture, therefore is necessary
+to compile it for the \verb=ARM= arquitecture.\\
+First install the necessary libraries:\\
+\verb=     > sudo apt-get install libusb-dev=\\
+\verb=     > sudo apt-get install libstdc++6=\\
+\verb=     > sudo apt-get install libc6=\\
+\verb=     > sudo apt-get install libgcc1=\\
+Go to SwitchBox manufacturer's webpage  \\
+\verb=http://www.antrax.de=\\
+Search for the product's page of the SwitchBox device and click the \emph{Downloads} tab and then click on \emph{linux}.
+Save the file and unpack it with:\\
+\verb=     > mkdir antrax=\\
+\verb=     > cd antrax=\\
+\verb=     > unzip ../switchboxusb-linux.zip=\\
+\verb=     > unzip AntraxAccess.zip=\\
+\verb=     > unzip AntraxLinux.zip=\\
+
+You will find a \emph{pdf} document with instructions in German: \verb=Switchbox-USB-Linux.pdf=\\
+%This comes precompiled for \verb=i386=. We need to compile it for \verb=ARM=.\\
+In order to proceed to the compilation, do the following:\\
+\verb=     > cd USBaccess=\\
+\verb=     > vim USBaccessBasic.c=\\
+Change the line \verb=14= from \verb=#include <linux/usb.h>= to \verb=#include <usb.h>=\\
+\verb=     > cc -c -lusb -o USBaccessBasic.o USBaccessBasic.c=\\
+\verb=     > rm USBaccess.o=\\
+\verb=     > make=\\
+\verb=     > cp USBaccess.a USBaccess.h USBaccess.o ../Example/=\\
+\verb=     > cd ../Example=\\
+\verb=     > rm USBswitch USBswitch.o=\\
+\verb=     > make=\\
+At this point the command-line tool is ready to work but some work is still needed.\\
+\verb=     > ls /dev/usb/=\\
+The output should show something like this:\\
+\verb=       hiddev0 hiddev1=\\
+If nothing comes out is likely that \verb=udevd= is not working. It's possible to find out by typing:\\
+\verb=     > pidof udevd=\\
+Create a new rule. I think the best way proceed is as follows:\\
+\verb#     > sudo echo 'BUS=="usb", KERNEL=="hiddev[0-9]", NAME="usb/hiddev%n",\#\\ 
+\verb# MODE="0666"' >> /etc/udev/rules.d/10-local.rules#\\
+If it doesn't work type \verb=sudo su= and you will be root. Now you can run the previous command.
+Restart the service:\\
+\verb=     > sudo /etc/init.d/udev restart=\\
+\verb=     > cd USBaccess=\\
+\verb=     > source make_hid=\\
+By default we need to run \verb=USBswitch= as \verb=root= or with \verb=sudo=, this is just a matter of permissions but is not a good
+idea just to change the permissions of the device. Do the following:\\
+\verb=     > sudo chmod g+rw /dev/usb/hiddev0=\\
+\verb=     > sudo  chgrp dialout /dev/usb/hiddev0=\\
+Now you can turn on or off the SwitchBox.\\
+\verb=     > USBswitch 1= (on)\\
+\verb=     > USBswitch 0= (off)\\
+After a reboot the permissions of the file \verb=/dev/usb/hiddev0= will return to normal so you might need to do this everytime. A script exists in the
+latest system called \verb=setUSBswitch=.
+
+\section{Adding a Real Time Clock (RTC)}
+Since the Raspberry Pi is meant to be a cheap computer it doesn't come with an internal clock, so its recomended to use an RTC.
+There is one implemented that uses the I2C protocol. \\
+\verb=sudo apt-get install python-smbus=\\
+\verb=sudo apt-get install i2c-tools=
+
+We will need adafruit's instructions to setup correctly the RTC.\\
+\verb=https://learn.adafruit.com/adding-a-real-time\=\\
+\verb=-clock-to-raspberry-pi/overview=\\
+The following instructions are reproduced from there, I will asume you have a revision 2 Raspberry Pi. At this point the RTC should be already pluged correctly.
+In order to verify that, type:
+
+\verb=     > sudo i2cdetect -y 1=
+
+\begin{figure}
+ \centering
+ \includegraphics[width=0.7\textwidth]{./img/a1-i2cdetect.png}
+ % i2cdetect.png: 472x252 pixel, 72dpi, 16.65x8.89 cm, bb=0 0 472 252
+ \caption{This is what you should see. If instead of 68 you get UU, it means that the RTC has already been setup.}
+ \label{fig:i2cdetect}
+\end{figure}
+
+If everything is working fine, move to the next level. First load the RTC kernel module:\\
+\verb=     > sudo  modprobe rtc-ds1307=\\
+Then you will need to be root, in raspbian (or any debian distro) the following instruction makes you root.\\
+\verb=     > sudo su=\\
+\verb=     > echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device=\\
+Type \verb=exit= to go back to your normal user.
+
+Check the time of the RTC with \verb=sudo hwclock -r= and if it is the first time this has been done you should get the 1st of January of 2000.
+
+Check the time of your Raspberry Pi with \verb=date= If it is not correct run \verb=sudo raspi-config= and set the right timezone, if you are conected
+to the internet that should fix the time properly. Now check the time again with \verb=date= and then write it to the RTC.
+
+\verb=     > sudo hwclock -w= 
+
+Again, you can check it with:
+
+\verb=     > sudo hwclock -r=
+
+If everything is correct at this point it means you have a running RTC, but at the next reboot it will not be working so we need to make the RTC kernel
+module to load at boot time.
+
+\verb=     > sudo vim /etc/modules=\\
+At the end of the file add \verb=rtc-ds1307=
+
+Now for the creation of the RTC device at boot time edit \verb=/etc/rc.local=\\
+
+\verb=     > sudo vim /etc/rc.local=
+
+Add, \emph{BEFORE} \verb=exit 0=.\\
+\verb=echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device=\\
+\verb=sudo hwclock -s=
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.7\textwidth,keepaspectratio=true]{./img/a1-rc-local.png}
+ % rc-local.png: 634x486 pixel, 72dpi, 22.37x17.15 cm, bb=0 0 634 486
+ \caption{This is what the file \emph{/etc/rc.local} should look like.}
+ \label{fig:rc-local}
+\end{figure}
+
+\end{enumerate}
+
+\section{Webpage} [this part on neeeds some work]
+Place the webfiles in \verb=/var/www/http/=
+\section{TheBox Control Software}
+\verb=     > mkdir ~/.bin=\\
+Move the files there\\
+edit \verb=.bashrc=\\
+\verb=     > vim .bashrc=\\
+add the line\\
+\verb+export PATH=$PATH:/home/thebox/.bin+
+\section{Clean Up}
+bllbala

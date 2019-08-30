@@ -1,0 +1,705 @@
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%%    2011/08/29 Vorlage fuer Bachelor- und Masterarbeiten am Institut fuer Astrophysik Goettingen
+%% Alle Aenderungen gegenueber der Vorlage von Thomas Pruschke (siehe unten) sind in CHANGELOG.txt im selben
+%% Verzeichnis aufgelistet.
+%%
+%%    2009/03/12 v1.0 GAUBM Vorlage fuer Abschlussarbeiten Physik
+%% Template fuer Bachelor- und Masterarbeiten
+%% an der Fakultaet fuer Physik (c) Thomas Pruschke der GA Universit�t
+%% Verbesserungsvorschlaege bitte an pruschke@theorie.physik.uni-goettingen.de
+%%
+%% Benoetigte Pakete: datenumber
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Bitte vor dem Veraendern diese Datei umbenennen! %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% scrbook - Ersatz f�r LaTeX book Klasse aus dem KOMA Script
+%% Moegliche Optionen: diejenigen der Klasse scrbook ausser titlepage
+
+%% deutsche Arbeit:
+\documentclass[master,       %% Typ der Arbeit: bachelor oder master
+               twoside,        %% zweiseitiges Layout
+               BCOR10mm,       %% Bindekorrektur 10 mm
+%               liststotoc,nomtotoc,bibtotoc, %% Aufnahme der div. Verzeichnisse
+                                              %% ins Inhaltsverzeichnis
+%               english,ngerman, %% Alternativspr. Englisch, Dokumentspr. Deutsch
+               ngerman,english  %% Alternativspr. Deutsch, Dokumentspr. Englisch
+%               final,          %% Endversion; draft fuer schnelles Kompilieren
+               ]{GAUBM_astro}
+
+\usepackage{aas_macros} %% Definiert Makros fuer Journale in Bibtex-Eintraegen von ADS
+
+\usepackage{setspace}  %% Zur Setzung des Zeilenabstandes
+\usepackage[germanb]{babel}     %% Sprachen-Unterstuetzung
+\usepackage{calc}      %% ermoeglicht Rechnen mit Laengen und Zaehlern
+\usepackage[T1]{fontenc}       %% Unterstutzung von Umlauten etc.
+\usepackage[latin1]{inputenc}  %% 
+%% in aktuellem Linux & MacOS X wird standardmaessig UTF8 kodiert!
+% \usepackage[utf8]{inputenc}    %% Wenn latin1 nicht geht ...
+
+\usepackage{amsmath,amssymb} %% zusaetzliche Mathe-Symbole
+
+\usepackage{lmodern} %% type1-taugliche CM-Schrift als Variante zur
+                     %% "normalen" EC-Schrift
+%% Paket fuer bibtex-Datenbanken
+\usepackage[comma,sort&compress]{natbib}
+\bibliographystyle{doktor_natb_bab_amp}
+
+\newcommand{\tabheadfont}[1]{\textbf{#1}} %% Tabellenkopf in Fett
+\usepackage{booktabs}                      %% Befehle fuer besseres Tabellenlayout
+\usepackage{longtable}                     %% umbrechbare Tabellen
+\usepackage{array}                         %% zusaetzliche Spaltenoptionen
+
+%% umfangreiche Pakete fuer Symbole wie \micro, \ohm, \degree, \celsius etc.
+\usepackage{textcomp,gensymb}
+
+%\usepackage{SIunits} %% Korrektes Setzen von Einheiten
+\usepackage{units}   %% Variante fuer Einheiten
+
+%% Selbst hinzugefuegte Pakete %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{multirow}
+\usepackage{lscape}
+%\usepackage{ziffer}
+%\usepackage{icomma}
+%\usepackage{siunitx}
+\usepackage[size=normalsize]{caption}
+%\usepackage[clearempty]{titlesec}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Hyperlinks im Dokument; muss als eines der letzten Pakete geladen werden
+\usepackage[pdfstartview=FitH,      % Oeffnen mit fit width
+            breaklinks=true,        % Umbrueche in Links, nur bei pdflatex default
+            bookmarksopen=true,     % aufgeklappte Bookmarks
+            bookmarksnumbered=true  % Kapitelnummerierung in bookmarks
+            ]{hyperref}
+
+%% Weiter benoetigte Pakete: datenumber
+%% Falls dieses Paket nicht in der Installation vorhanden ist,
+%% kann es von der Seite mit diesem Template heruntergeladen werden
+%% und in einem LaTeX bekanntem Verzeichnis installiert werden (notfalls
+%% dem Verzeichnis mit der Arbeit).
+
+%% Eigene Befehle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hier koennen nuetzliche Abkuerzungen etc. definiert werden, z.B.:
+\newcommand{\ci}{\textdegree}
+\newcommand{\de}{\partial}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\const}{\mathrm{const.}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%%
+%%                   Ab hier muessen die Anpassungen geschehen
+%%
+%% Hier den eigenen Namen einsetzen
+\ThesisAuthor{Sim\'on Neftal\'i}{Torres Robledo}
+%% Hier den Geburtsort einsetzen
+\PlaceOfBirth{Quilitapia, Chile.}
+%% Titel Arbeit. Das erste Argument ist der deutsche, das zweite der
+%% englische Titel.
+\ThesisTitle{Einfluss der Umgebungstemperatur auf die Wellenl\"angen stabilit\"at von $I_2$-Gaszelle}{Influence of 
+Environmental Thermal Stability on the Wavelength Solution of Iodine Cells.}
+%% Erst- und Zweitgutacher/in
+%% Ist der/die Betreuer/in nicht identisch mit dem/r Erstgutachter/in,
+%% muss diese/r als optionales Argument angegeben werden.
+\FirstReferee[Prof. Dr.\ Ansgar Reiners, Dr.\ Philipp Huke]{Prof. Dr.\ Ansgar Reiners}
+\Institute{Institut f\"ur Astrophysik}
+\SecondReferee{Dr.\ Philipp Huke}
+%% Beginn und Ende des Anfertigungszeitraumes
+\ThesisBegin{1}{3}{2015}
+\ThesisEnd{30}{8}{2015}
+%% DO NOT TOUCH THESE LINES!!!!
+\frontmatter
+\maketitle
+\cleardoublepage
+%% Zusammenfassung. Falls nicht gewuenscht, bitte auskommentieren.
+
+%% So laesst sich in die andere Sprache umschalten (Englisch bzw. Deutsch)
+\begin{otherlanguage}{english}
+\begin{abstract}
+  One of the most important aspects of data analysis for astrophysics is the calibration. One technique of wavelength 
+calibration for spectroscopy is using atomic standard, for instance, Molecular Iodine ($I_2$). A \emph{Gas Cell} is a 
+container usually made out of glass/Pyrex in the shape of a cylinder with its interior filled with a gas. Molecular 
+Iodine needs to be heated in order to be in gaseous state, from this temperature will depend the line depth (DELETE:: 
+mainly and we'll see what else :: DELETE) therefore we worked on a way to have a very temperature stable Iodine$_2$ 
+Cell. 
+  We use a Fourier Transform Spectrograph (FTS) available at the Institute to perform 
+  very high spectral resolution (R $\sim$ 600.000) measurements in order to characterize the \emph{spectral stability} in terms of line depth and wavelength
+  solution. 
+  \bigskip\par
+  \textbf{Keywords:} Wavelength calibrators, Iodine Cells, Spectroscopy
+\end{abstract}
+\end{otherlanguage}
+
+%% Ende des Vorspanns
+\cleardoublepage
+%% Ab hier 1 1/2 facher Zeilenabstand (durch setspace-Paket)
+\onehalfspacing
+%% Erzeugt Inhaltsverzeichnis
+\tableofcontents
+
+%% Hier kann man seine Bezeichnungsweisen erklaeren. Falls nicht
+%% benoetigt, bis einschliesslich \end{nomenclature} auskommentieren
+\begin{nomenclature}
+%% Fuer die Berechnung der Spaltenbreiten muss \usepackage{calc}
+%% geladen sein!
+\section*{Lateinische Buchstaben}
+\noindent
+\begin{longtable}[l]{p{0.2\textwidth}p{0.7\textwidth-6\tabcolsep}p{0.1\textwidth}}
+  \tabheadfont{Variable}&\tabheadfont{Bedeutung}&\tabheadfont{Einheit}\\\midrule\endhead
+  $A$ & Querschnittsfl\"ache & $\unit{m^2}$\\
+  $c$ & Geschwindigkeit & $\unitfrac{m}{s}$
+\end{longtable}
+\section*{Griechische Buchstaben}
+\begin{longtable}[l]{p{0.2\textwidth}p{0.7\textwidth-6\tabcolsep}p{0.1\textwidth}}
+  \tabheadfont{Variable}&\tabheadfont{Bedeutung}&\tabheadfont{Einheit}\\\midrule\endhead
+  $\alpha$  & Winkel & $\unit{\degree}$; --\\
+  $\varrho$ & Dichte & $\unitfrac{kg}{m^3}$
+\end{longtable}
+\section*{Indizes}
+\begin{longtable}[l]{p{0.2\textwidth}p{0.8\textwidth-4\tabcolsep}}
+  \tabheadfont{Index}&\tabheadfont{Bedeutung}\\\midrule\endhead
+  R & Resolving Power\\
+  SNR & Signal to Noise Ratio
+\end{longtable}
+\section*{Abk\"urzungen}
+\begin{longtable}[l]{p{0.2\textwidth}p{0.8\textwidth-4\tabcolsep}}
+  \tabheadfont{Abk\"urzung}&\tabheadfont{Bedeutung}\\\midrule\endhead
+  FTS & Fourier Transform Spectrograph\\
+  3D & dreidimensional\\
+  max & maximal
+\end{longtable}
+\end{nomenclature}
+%% \listoftables und \listoffigures sollten nur bei genuegender Anzahl Tabellen
+%% verwendet werden
+%\listoffigures
+%\listoftables
+
+\mainmatter   %% Anfang Hauptteil
+
+\chapter{Introduction}
+It's been a very long path since the beginning of spectroscopy, there has been 
+a natural increase in the complexity of the technique.
+This is only possible thanks to technological advances, in fact, science 
+and technology depends on each other. Iodine cells have been in study
+and use since more than a century, \cite{evans1910}. but only about two 
+decades ago it has been used for \emph{precise radial velocity} measurements.
+
+More than precise radial velocity measurements what is even more important is 
+the \emph{long term stability}, specially important for the search of 
+exoplanets, which at the end is precision as well but must not be confused.
+
+
+
+\section{Motivation}
+The reasons to study the influence of thermal stability on Iodine cells can be 
+break down into two: First, it hasn't been done and second, the cell's 
+temperature measuring methods are not very consistent therefore the gas' real 
+temperature is less certain. In fact in our experiments we see that for an 
+uncontrolled environment the temperature varies according to external factors 
+such as: Air temperature, if the sun is hitting the window of the lab or if 
+there is any source of heat in the surroundings.
+
+From the scientific point of view the importance of this experiment is the 
+benefit of knowing whether there is or not intrinsic variations in the 
+wavelength solution of Iodine cells, such cells can be built with just one 
+internal pressure (sealed glass tube, see Figure \ref{fig:gas-cell}) and then 
+the observer controls the temperature by heating the walls of the glass and 
+measuring in place. There are many drawbacks from this, for instance, the 
+optical window can't be isolated therefore it is exposed to the environment. It 
+will loose heat and it will always be at a lower temperature than the 
+walls being heated, thus, most of the time the Iodine will condensate on the 
+optical window creating black \emph{rocky} spots. This will be even more 
+notorious for cells with large optical windows, say, around 5 cm or more.
+%Soon after we started working it became obvious the importance of isolating 
+%the experiment.
+
+In general, besides the fact that there are many factors that will affect the 
+reading, even more remarkable is the fact that the actual reading is made at 
+the exterior of the cell and not inside, therefore the gas' temperature can be 
+from less than one to several degrees, depending on the environment, 
+cell's geometry and construction.
+
+\section{Concepts of Spectroscopy}
+-cross section
+-mean free path
+
+\subsection{Absorption and Emission Lines}
+Noch ein paar Beispiele zu Abbildungen und Tabellen:
+\subsection{Line Shapes}
+Atomic spectra and stability
+\section{Gas Cells}
+Gas Cells are glass cylinder with optical windows on its extremes. The glass 
+has to be of very low thermal expansion coefficient like \emph{borosilicate} 
+(Pyrex). (because is going to be glued to the optical windows therefore it would 
+create mechanical tension, optical properties, reduces the risk of breaking)
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\columnwidth,keepaspectratio=true]{./img/gas-cell.png}
+ % gas-cell.JPG: 3776x2520 pixel, 180dpi, 53.28x35.56 cm, bb=0 0 1510 1008
+ \caption{The glass tube in the middle of the image is the gas cell, this one 
+has angled windows in order to reduce internal reflections.}
+ \label{fig:gas-cell}
+\end{figure}
+
+
+\subsection{Iodine}
+\subsection{Other Gases}
+\subsection{Cell Heating}
+
+Heating a gas cell can be very simple as it can be challenging. It is 
+easy because it is basically expose it to a controlled source of heat and it can
+be challenging when we think in terms of thermal stability and in the 
+potential optical effects that may occur due to thermal gradients, for instance.
+In the past (citation needed) the gas cells in use are heated up until the 
+line depth satisfies the observer. 
+\begin{center}
+ \begin{figure}[h!]
+ \centering
+ \includegraphics[width=\columnwidth]{./img/diag_heatloss.png}
+ % diag_hardware.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+ \caption{In this diagram is depicted a very rudimentary \emph{heat flow} in a simple heated gas cell system. What is clear from this is that you need
+ a stable environment in order to have some stability inside the cell. Why?, because you have most of all only loss of heat.}
+ \label{fig:diag_heatloss}
+\end{figure}
+\end{center}
+
+It is also important that the heat distribution is homogeneous, specially at low temperatures, since iodine will crystallize in the colder parts.
+the experiment of heating the cell
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{./img/cell_heating_idea.png}
+\caption{This is the most simple method to heat up a gas cell. A wire that will heat up once an electric potential difference is placed in its extremes.}
+\label{fig:cell_heating_idea}
+\end{figure}
+\subsubsection{A Simple Experiment}
+One of the many small experiments I did while I was developing the larger one, provided me with some very clear insight on how temperature behaves in
+gas cell plus heater system, and in my opinion has deep implications in the use of temperature controlled gas cells when gas temperature is critical.
+
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\textwidth]{./img/temperature_plot_2.png}
+ % temperature_plot_2.png: 2400x1800 pixel, 300dpi, 20.32x15.24 cm, bb=0 0 576 432
+ \caption{This experiment was made by hand, a couple of sensors placed in strategic points of an experimental cell. The dashed area corresponds to the time where power was on while
+ the red vertical lines indicate the time when the outside and inside temperature reached their maximum. The dotted line is the maximum temperature inside. The dash-dotted line
+ is 40 degree marker and the dashed line is the maximum obtained in the outside, which happens to be very close to the heating mechanism.}
+ \label{fig:temp-plot}
+\end{figure}
+
+
+In the figure \ref{fig:temp-plot} you see that the interior and exterior temperatures vary in totally different ways.
+Both differ in scale and timing and there is also a certain inertia, which is expected in this system. Mainly due to the insulation
+that the glass provides.
+
+In this first attempt I only wanted to see how the interior and surface temperature varied but a second extended experiment, using a very simple 
+temperature control algorithm made me realize of something very important. See figure \ref{fig:simple-expe} and please take the time to identify what 
+line is which. My conclusion is that this experiment, as simple as it is, demonstrates the fact that it is impossible to equalize both the exterior's and interior's
+temperature if the environment is not controlled as well. This is very important because usually the cell's temperature is measured at the surface of the
+cell but this value has nothing to do with the gas temperature. At this point we don't know yet how this impacts the wavelength solutions and if it does
+this result is definitely very important. 
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\textwidth]{./img/experiment-V_012.png}
+ % experiment-V_012.png: 2400x1800 pixel, 300dpi, 20.32x15.24 cm, bb=0 0 576 432
+ \caption{Simple experiment demonstrate that is impossible to equalize the external cell temperature with the internal, or the gas temperature. The larger
+ the difference between target and the environmental temperatures, the larger is the lag of the internal temperature compared to that of the external surface.}
+ \label{fig:simple-expe}
+\end{figure}
+
+Also, this highlights the importance of TheBox experiment since we will have the air surrounding the cell, i.e. the air inside the box, the same as the 
+gas' target temperature therefore we can assume that at some point the gas inside the cell will equalize to the target temperature. We could go even further
+from there: We could search for empirical temperature-to-line-depth relationship and test it with measurements in uncontrolled environments.
+
+\subsubsection{The Algorithm}
+The most common controllers are the so called the PID controller: 
+\chapter{Experimental Design}
+Since we don't know how large is the influence of the environment in the spectral output of an Iodine Cell, the goal was to develop an stable 
+environmental chamber. [[I started proposing some some crazy ideas, although I knew they were absolutely feasible, their complexity would require
+much more time than what is available for a Master Thesis.]] Some of them included cell containers in which the gas cell would have been inside a 
+vacuum chamber but the problem with most of them was the need of additional optical windows that would have to sustain the pressure difference
+and since this have to be done by transmissive optic elements, decrease the light transmission efficiency and possibly add optic distortions by the bending due to the already mentioned difference in pressure
+from the inside with the outside. The final decision was to build a box isolating the inside with foam, placing the optical elements inside and 
+attempting to control the temperature. Achieving stable temperature was top priority.
+\section{Hardware}
+In order to achieve our goals several and diverse pieces of hardware were required, since the beginning a general idea was established but 
+some of them appeared later. Figure \ref{fig:diag_hardware} shows all the hardware components and how they interact with each other,
+the optical part was ignored but is well explained later. The microcomputer known as \emph{Raspberry Pi} is the core of the temperature 
+control and monitoring system. The local network is also an important part because after everything was working and stable, it allowed
+to monitor and control the experiment remotely.
+\subsection{Optical Setup}
+The idea for the optical setup was taken from an existing one used in \emph{The G\"ottingen Solar Radial Velocity Project}  by \cite{lemke2016} 
+Figure \ref{fig:optical_setup} shows the general idea and the optics involved. Although the displayed setup slightly differs from the final one,
+all the important optical elements are present, also the relative positions of the elements is the same.
+\begin{figure}
+ \centering
+ \includegraphics[width=\columnwidth,keepaspectratio=true]{./img/optical_setup_idea.jpg}
+ % optical_setup_idea.jpg: 3968x2232 pixel, 180dpi, 55.99x31.50 cm, bb=0 0 1587 893
+ \caption{\textbf{A:} Input optical Fiber. \textbf{B:} Reflective Collimator.  \textbf{C:} Alignment tool. \textbf{D:} Diaphragm.  \textbf{E:} Thorlabs Cell Oven. \textbf{F:} Iodine Cell.  \textbf{G:} X-Y alignment tool. \textbf{H:} Alignment tool.  \textbf{I:} Reflective Collimator. \textbf{J:} Exit Optical Fiber.}
+ \label{fig:optical_setup}
+\end{figure}
+
+\subsection{TheBox}
+Although the optical lab was stabilized to about 21\textdegree C, there were variations
+from day to night or from sunny to cloudy days, therefore it was very necessary to make use of an extra layer of isolation, but that was not the
+only motivation, we really wanted to study a very temperature-stable gas cell and have control over its temperature. Figure \ref{fig:thebox-design-appended}
+shows two versions of the initial design, the base for developing the design was the needed inner volume, or in other words: the volume needed by the optical 
+setup (Figure \ref{fig:optical_setup}). After, things like available materials, construction technique and costs, safety and \emph{suitability for the job} 
+were considered 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio=true]{./img/thebox_design_appended.png}
+\caption{These are designs proposed to the workshop. (left) In orange you have the base and then there are screwable walls, all removable. In yellow, red, white and grey you have
+the foam panels intended for thermal isolation. (right) One of the latest version of the design, but the principle is the same. At the end we allowed
+the workshop decide the construction technique using this as a guide.}
+\label{fig:thebox-design-appended} 
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio=true]{./img/thebox.png}
+\caption{The constructed box has only one opening: the top. The thicker cables pass through a specially built port. The connector with the ribbon
+cable is connected to the sensors and also carries the power for the fan in the interior.}
+\label{fig:thebox}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio=true,angle=90]{./img/thebox-hot-air-port.JPG}
+\caption{In order to heat the air inside the box we ran a copper pipe inside, figure \ref{fig:thebox-interior}, the heat source is a 
+\emph{Rework Station}, a tool used in electronics that throws  hot air through a nozzle, we let the hot air heat the pipe and the pipe heats the air inside.
+We figure this is a less violent way to do it.}
+\label{fig:thebox-hot-air-port}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio=true]{./img/thebox_interior.png}
+\caption{This is what the interior looks like from the top. The figure \ref{fig:optical_setup} already describes the optical components. At the bottom of the image you can 
+see a copper pipe, this is used as a radiator to heat up the air inside, figure \ref{fig:thebox-hot-air-port} describes how it works. At the bottom-left
+there is a fan, whose function is to homogenize the temperature within the internal volume of the box. Without it there are differences of about 1
+degree from side to side and up to three from top to bottom, from TheBox's perspective.}
+\label{fig:thebox-interior}
+\end{figure}
+
+
+
+\subsection{Monitoring and Control}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\textwidth]{./img/schema1.png}
+ % schema1.png: 2838x1589 pixel, 300dpi, 24.03x13.45 cm, bb=0 0 681 381
+ \caption{Schematics for Custom built Printed Circuit Board (PCB). The transistors at the bottom right were not used since they were meant for 
+ serial communication between the RPI and the Arduino. Communication is done by USB. At the center you see the connector for all the temperature sensors.}
+ \label{fig:schema1}
+\end{figure}
+
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\textwidth]{./img/schema2.png}
+ % schema1.png: 2838x1589 pixel, 300dpi, 24.03x13.45 cm, bb=0 0 681 381
+ \caption{This is an independent circuit and controls the fan inside the box. It has a three-position switch. High (speed), Off and Low.
+ The cables are mixed later through the only multi-pin-connector.}
+ \label{fig:schema2}
+\end{figure}
+
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\textwidth]{./img/board_top.png}
+ % board_top.png: 1230x692 pixel, 300dpi, 10.41x5.86 cm, bb=0 0 295 166
+ \caption{Top side of the printed circuit board. Not to scale.}
+ \label{fig:board_top}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\textwidth]{./img/board_bottom.png}
+ % board_top.png: 1230x692 pixel, 300dpi, 10.41x5.86 cm, bb=0 0 295 166
+ \caption{Bottom side of the PCB. Not to scale.}
+ \label{fig:board_bottom}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\textwidth]{./img/layout.png}
+ % layout.png: 1230x692 pixel, 300dpi, 10.41x5.86 cm, bb=0 0 295 166
+ \caption{Components placement layout.}
+ \label{fig:layout}
+\end{figure}
+
+
+\subsubsection{Raspberry Pi}
+\subsubsection{Arduino}
+\subsubsection{Custom PCB}
+\subsubsection{Thorlabs TC200}
+\subsubsection{USB Switchbox}
+
+\begin{center}
+ \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.9\columnwidth]{./img/diag_hardware.png}
+ % diag_hardware.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+ \caption{Hardware description}
+ \label{fig:diag_hardware}
+\end{figure}
+\end{center}
+
+
+
+\section{Software}
+\subsection{GNU/Linux}
+\subsection{Python}
+\subsection{Arduino}
+\subsection{ZMQ}
+\subsection{LAMP}
+LAMP stands for: \emph{Linux, Apache, MySQL and PHP} is a widely common combinations of tools for setting up a standard 
+web server
+\begin{center}
+ \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.9\columnwidth]{./img/diag_software.png}
+ % diag_hardware.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+ \caption{Software description}
+ \label{fig:diag_software}
+\end{figure}
+\end{center}
+\section{Instrument}
+\subsection{Fourier Transform Spectrograph}
+\subsection{BACHES}
+
+\chapter{Experimental Results}
+
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/duty_cycle_example.JPG}
+\caption{duty cycle example}
+\label{fig:duty-cycle-example}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/electronics-assembled.JPG}
+\caption{electronics-assembled}
+\label{fig:electronics-assembled}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/electronics_control.png}
+\caption{electronics control}
+\label{fig:electronics-control}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/electronics-top-view.JPG}
+\caption{electronics-top-view}
+\label{fig:electronics-top-view}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/electrononics-apart.JPG}
+\caption{electrononics-apart}
+\label{fig:electrononics-apart}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/fts.JPG}
+\caption{fts}
+\label{fig:fts}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/line_detection0.png}
+\caption{line detection}
+\label{fig:line-detection}
+\end{figure}
+
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/peltier_test.JPG}
+\caption{peltier test}
+\label{fig:peltier-test}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/thebox-casing-angle.JPG}
+\caption{thebox casing angle}
+\label{fig:thebox-casing-angle}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/thebox-casing-connections.JPG}
+\caption{thebox casing connections}
+\label{fig:thebox-casing-connections}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio=true]{./img/thebox-casing-front.JPG}
+\caption{thebox casing front}
+\label{fig:thebox-casing-front}
+\end{figure}
+
+
+
+
+
+
+\section{Data Acquisition}
+The data was obtained using the Fourier Transform Spectrograph available at the University of G\"ottingen. The following table summarizes the settings.
+\subsection{Dataset}
+In order to fully characterize the gas cell behavior with respect to temperature I performed the following measurements using the FTS
+\begin{itemize}
+ \item Stability test over 12 hours at several temperatures such as: Ambient temperature approx 22, 30, 
+40, 50, 60 FTS vacuum:
+ \item Heating up from ambient temperature up to 60 degree
+ \item Cooling down from 60 degree to ambient temperature
+ \item Long term (10 hours) measure from lab temperature up to 60 degree (too see how long does it takes to stabilize 
+line depth)
+\end{itemize}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Temp. & Stable & Duration & FTS Vacuum & FTS Pressure (h Pa) & Date\\
+\hline
+30 & Yes & 5h & No & 1030.00 & 2015/08/21\\
+\hline
+30 & Yes & 5h & Yes & 0.262 & 2015/08/21\\
+\hline
+30 & Yes & 12h & Yes & 0.118 & 2015/08/22\\
+\hline
+40 & Yes & 12h & Yes & 0.0917 & 2015/08/24\\
+\hline           
+50 & Yes & 12h & Yes & 0.099 &2015/08/23 \\
+\hline          
+60 & Yes & 12h & Yes & 0.0917 & 2015/08/24\\
+\hline
+20 & No & 12h & Yes& 0.0901 &2015/08/25 \\
+\hline
+20-60 & Yes & 12h & Yes & 0.0779 & 2015/08/26\\
+\hline              
+60-20 & Yes & 12h & Yes & 0.0798 &2015/08/26 \\
+\hline
+%× & × & × & × & ×\\
+%\hline
+\end{tabular}
+\end{center}
+
+
+\section{Data Processing}
+All the data was processed by Python scripts. It was developed in separated stages and then put together in a couple of different scripts. The next
+list summarizes the key features kept in mind while developing them.
+\begin{itemize}
+ \item Spectral Range Cut
+ \item Spline Interpolation
+ \item Two Spectra Cross Correlation
+ \item Line Detection
+ \item Line Gaussian Fit
+\end{itemize}
+
+
+\textbf{Spectral Range Cut:} Selecting the spectral range is relatively easy. $wavenumber\\ cm^-1$ was the chosen unit because the data provided by
+FTS data acquisition software comes natively with it. Therefore, in order to avoid error propagation from unit conversion all the process is done in wavenumber.
+
+
+\textbf{Spline Interpolation} An interpolation is a mean to \emph{smooth} a data set by adding \emph{interpolated} points in between real data points.
+This is helpful, for instance, in the case a signal is under sampled. Every interpolation uses a function to find the data points. 
+A spline is a function (citation needed)... For this dataset a factor of twenty points was added. With the first attempt to perform a whole spectrum
+spline interpolation I kept getting a MemoryError exception, because of the large amount of data being used. (add in the appendix code that worked?).
+
+\textbf{Two Spectra Cross Correlation:} A cross correlation is used to compare two datasets in order to find similarities, in other words it could be
+said that is a measure of similitude. It also possible to do self correlation in order to detect periodicity in a signal, for instance. In this case
+we choose one spectrum and use it as template, usually the first of the series and then cross-correlate all the rest with respect to that one. 
+There is no special reason to choose a particular one since we are interested in the relative variation and stability.
+
+\textbf{Line Detection:} A very basic line detection algorithm is implemented, definitely improvable. The idea is to analyze very small portions of
+the spectrum and measure its standard deviation. A second pass calculates the mean standard deviation of the whole spectrum and then detect 
+spikes by comparing all the values to the previously calculated mean. A spike in standard deviation indicates a larger variation of the points, 
+therefore the possible existence of a line. If a spike is detected a larger portion of the spectrum is covered and a minimum is obtained, 
+this is used as a \emph{line candidate}. Two more conditions must be met. First is that the line candidate is at an absolute minimum and not, 
+for instance, in the side of a line. An extra comparison is carried out in order to double check the previous condition. Finally, the line candidate must 
+not been previously identified.
+
+\begin{figure}
+ \centering
+ \includegraphics[width=\columnwidth,keepaspectratio=true]{./img/line_detection0.png}
+ % line_detection0.png: 2400x1800 pixel, 300dpi, 20.32x15.24 cm, bb=0 0 576 432
+ \caption{Small portion of a spectra with green vertical lines meaning successful line candidates identified. Red vertical lines are discarded line candidates. Around 23.000 line candidates are identified in the whole spectrum between 500 to 600 $nm$.}
+ \label{fig:line_detection}
+\end{figure}
+
+
+Figure \ref{fig:line_detection} shows a very small portion of the spectrum with its lines identified. Although not all the lines 
+are identified it is not a problem for us since we have thousands of lines and right now we are only interested in the most 
+prominent features.
+
+\textbf{Line Gaussian Fit:}
+
+
+\section{Results}
+
+\chapter{Future Work}
+
+One semester is too little time to do a master thesis properly. In fact I had four month and a half of effective time to work.
+The experimental setup, also named \emph{TheBox}, is ready to work stable for very long periods. The experiments performed should be repeated 
+in order to 
+
+
+\chapter{Discussion}
+
+
+\appendix
+\chapter{Appendix}
+\include{instructions_source}
+
+\chapter{zweiter Anhang}
+Text\dots
+
+\cleardoublepage
+%% Bibliographie. Das Argument muss der Name der BIBTeX-Datenbank stehen.
+%% Ein Beispiel fuer eine solche Datenbank finden Sie in bthesis_datenbank.bib
+\bibliography{iodine} 
+
+\chapter*{Danksagung}
+Thanks
+%% Dieser Befehl MUSS am Ende stehen und erzeugt die Erklaerung ueber die
+%% benutzten Mittel
+\Declaration
+\end{document}

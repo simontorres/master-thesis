@@ -1,0 +1,344 @@
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%%    2011/08/29 Vorlage fuer Bachelor- und Masterarbeiten am Institut fuer Astrophysik Goettingen
+%% Alle Aenderungen gegenueber der Vorlage von Thomas Pruschke (siehe unten) sind in CHANGELOG.txt im selben
+%% Verzeichnis aufgelistet.
+%%
+%%    2009/03/12 v1.0 GAUBM Vorlage fuer Abschlussarbeiten Physik
+%% Template fuer Bachelor- und Masterarbeiten
+%% an der Fakultaet fuer Physik (c) Thomas Pruschke der GA Universit�t
+%% Verbesserungsvorschlaege bitte an pruschke@theorie.physik.uni-goettingen.de
+%%
+%% Benoetigte Pakete: datenumber
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Bitte vor dem Veraendern diese Datei umbenennen! %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% scrbook - Ersatz f�r LaTeX book Klasse aus dem KOMA Script
+%% Moegliche Optionen: diejenigen der Klasse scrbook ausser titlepage
+
+%% deutsche Arbeit:
+\documentclass[master,       %% Typ der Arbeit: bachelor oder master
+               twoside,        %% zweiseitiges Layout
+               BCOR10mm,       %% Bindekorrektur 10 mm
+%               liststotoc,nomtotoc,bibtotoc, %% Aufnahme der div. Verzeichnisse
+                                              %% ins Inhaltsverzeichnis
+%               english,ngerman, %% Alternativspr. Englisch, Dokumentspr. Deutsch
+               ngerman,english  %% Alternativspr. Deutsch, Dokumentspr. Englisch
+%               final,          %% Endversion; draft fuer schnelles Kompilieren
+               ]{GAUBM_astro}
+
+\usepackage{aas_macros} %% Definiert Makros fuer Journale in Bibtex-Eintraegen von ADS
+
+\usepackage{setspace}  %% Zur Setzung des Zeilenabstandes
+\usepackage[ngerman]{babel}     %% Sprachen-Unterstuetzung
+\usepackage{calc}      %% ermoeglicht Rechnen mit Laengen und Zaehlern
+\usepackage[T1]{fontenc}       %% Unterstutzung von Umlauten etc.
+\usepackage[latin1]{inputenc}  %% 
+%% in aktuellem Linux & MacOS X wird standardmaessig UTF8 kodiert!
+%\usepackage[utf8]{inputenc}    %% Wenn latin1 nicht geht ...
+
+\usepackage{amsmath,amssymb} %% zusaetzliche Mathe-Symbole
+
+\usepackage{lmodern} %% type1-taugliche CM-Schrift als Variante zur
+                     %% "normalen" EC-Schrift
+%% Paket fuer bibtex-Datenbanken
+\usepackage[comma,sort&compress]{natbib}
+\bibliographystyle{doktor_natb_bab_amp}
+
+\newcommand{\tabheadfont}[1]{\textbf{#1}} %% Tabellenkopf in Fett
+\usepackage{booktabs}                      %% Befehle fuer besseres Tabellenlayout
+\usepackage{longtable}                     %% umbrechbare Tabellen
+\usepackage{array}                         %% zusaetzliche Spaltenoptionen
+
+%% umfangreiche Pakete fuer Symbole wie \micro, \ohm, \degree, \celsius etc.
+\usepackage{textcomp,gensymb}
+
+%\usepackage{SIunits} %% Korrektes Setzen von Einheiten
+\usepackage{units}   %% Variante fuer Einheiten
+
+%% Selbst hinzugefuegte Pakete %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{multirow}
+\usepackage{lscape}
+%\usepackage{ziffer}
+%\usepackage{icomma}
+%\usepackage{siunitx}
+\usepackage[size=normalsize]{caption}
+%\usepackage[clearempty]{titlesec}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Hyperlinks im Dokument; muss als eines der letzten Pakete geladen werden
+\usepackage[pdfstartview=FitH,      % Oeffnen mit fit width
+            breaklinks=true,        % Umbrueche in Links, nur bei pdflatex default
+            bookmarksopen=true,     % aufgeklappte Bookmarks
+            bookmarksnumbered=true  % Kapitelnummerierung in bookmarks
+            ]{hyperref}
+
+%% Weiter benoetigte Pakete: datenumber
+%% Falls dieses Paket nicht in der Installation vorhanden ist,
+%% kann es von der Seite mit diesem Template heruntergeladen werden
+%% und in einem LaTeX bekanntem Verzeichnis installiert werden (notfalls
+%% dem Verzeichnis mit der Arbeit).
+
+%% Eigene Befehle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hier koennen nuetzliche Abkuerzungen etc. definiert werden, z.B.:
+\newcommand{\ci}{\textdegree}
+\newcommand{\de}{\partial}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\const}{\mathrm{const.}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%%
+%%                   Ab hier muessen die Anpassungen geschehen
+%%
+%% Hier den eigenen Namen einsetzen
+\ThesisAuthor{Sim\'on Neftal\'i}{Torres Robledo}
+%% Hier den Geburtsort einsetzen
+\PlaceOfBirth{Quilitapia, Chile.}
+%% Titel Arbeit. Das erste Argument ist der deutsche, das zweite der
+%% englische Titel.
+\ThesisTitle{Einfluss der Umgebungstemperatur auf die Wellenl\"angen stabilit\"at von $I_2$-Gaszelle}{Influence of 
+Environmental Thermal Stability on the Wavelength Solution of Iodine Cells.}
+%% Erst- und Zweitgutacher/in
+%% Ist der/die Betreuer/in nicht identisch mit dem/r Erstgutachter/in,
+%% muss diese/r als optionales Argument angegeben werden.
+\FirstReferee[Prof. Dr.\ Ansgar Reiners, Dr.\ Philipp Huke]{Prof. Dr.\ Ansgar Reiners}
+\Institute{Institut f\"ur Astrophysik}
+\SecondReferee{Dr.\ Philipp Huke}
+%% Beginn und Ende des Anfertigungszeitraumes
+\ThesisBegin{1}{3}{2015}
+\ThesisEnd{30}{8}{2015}
+%% DO NOT TOUCH THESE LINES!!!!
+\frontmatter
+\maketitle
+\cleardoublepage
+%% Zusammenfassung. Falls nicht gewuenscht, bitte auskommentieren.
+
+%% So laesst sich in die andere Sprache umschalten (Englisch bzw. Deutsch)
+\begin{otherlanguage}{english}
+\begin{abstract}
+  One of the most important aspects of data analysis for astrophysics is the calibration. One technique of wavelength 
+calibration for spectroscopy is using atomic standard, for instance, Molecular Iodine ($I_2$). A \emph{Gas Cell} is a 
+container usually made out of glass/pyrex in the shape of a cylinder with its interior filled with a gas. Molecular 
+Iodine needs to be heated in order to be in gaseous state, from this temperature will depend the line depth (DELETE:: 
+mainly and we'll se what else :: DELETE) therefore we worked on a way to have a very temperature stable Iodine$_2$ 
+Cell. 
+  We use a Fourier Transform Spectrograph (FTS) available at the Institut to perform 
+  very high spectral resolution (R $\sim$ 600.000) measurements in order to characterize the \emph{spectral stability} in terms of line depth and wavelength
+  solution. 
+  \bigskip\par
+  \textbf{Keywords:} Wavelength calibrators, Iodine Cells, Spectroscopy
+\end{abstract}
+\end{otherlanguage}
+
+%% Ende des Vorspanns
+\cleardoublepage
+%% Ab hier 1 1/2 facher Zeilenabstand (durch setspace-Paket)
+\onehalfspacing
+%% Erzeugt Inhaltsverzeichnis
+\tableofcontents
+
+%% Hier kann man seine Bezeichnungsweisen erklaeren. Falls nicht
+%% benoetigt, bis einschliesslich \end{nomenclature} auskommentieren
+\begin{nomenclature}
+%% Fuer die Berechnung der Spaltenbreiten muss \usepackage{calc}
+%% geladen sein!
+\section*{Lateinische Buchstaben}
+\noindent
+\begin{longtable}[l]{p{0.2\textwidth}p{0.7\textwidth-6\tabcolsep}p{0.1\textwidth}}
+  \tabheadfont{Variable}&\tabheadfont{Bedeutung}&\tabheadfont{Einheit}\\\midrule\endhead
+  $A$ & Querschnittsfl\"ache & $\unit{m^2}$\\
+  $c$ & Geschwindigkeit & $\unitfrac{m}{s}$
+\end{longtable}
+\section*{Griechische Buchstaben}
+\begin{longtable}[l]{p{0.2\textwidth}p{0.7\textwidth-6\tabcolsep}p{0.1\textwidth}}
+  \tabheadfont{Variable}&\tabheadfont{Bedeutung}&\tabheadfont{Einheit}\\\midrule\endhead
+  $\alpha$  & Winkel & $\unit{\degree}$; --\\
+  $\varrho$ & Dichte & $\unitfrac{kg}{m^3}$
+\end{longtable}
+\section*{Indizes}
+\begin{longtable}[l]{p{0.2\textwidth}p{0.8\textwidth-4\tabcolsep}}
+  \tabheadfont{Index}&\tabheadfont{Bedeutung}\\\midrule\endhead
+  R & Resolving Power\\
+  SNR & Signal to Noise Ratio
+\end{longtable}
+\section*{Abk\"urzungen}
+\begin{longtable}[l]{p{0.2\textwidth}p{0.8\textwidth-4\tabcolsep}}
+  \tabheadfont{Abk\"urzung}&\tabheadfont{Bedeutung}\\\midrule\endhead
+  FTS & Fourier Transform Spectrograph\\
+  3D & dreidimensional\\
+  max & maximal
+\end{longtable}
+\end{nomenclature}
+%% \listoftables und \listoffigures sollten nur bei genuegender Anzahl Tabellen
+%% verwendet werden
+%\listoffigures
+%\listoftables
+
+\mainmatter   %% Anfang Hauptteil
+
+\chapter{Introduction}
+In the last decades there has been great progress in all the fields of science due to the also incredible advances in technologie.
+In fact they are strictly correlated. Higher computational power, construction techniques, 3d printing, resources availability, new
+materials
+
+gas cells have been around a while ago (
+\section{Motivation}
+(scientific motivation)
+
+\section{Concepts of Spectroscopy}
+Hier sollte etwas Text stehen.
+\subsection{Absorption and Emission Lines}
+Noch ein paar Beispiele zu Abbildungen und Tabellen:
+\subsection{Line Shapes}
+Atomic spectra and stability
+\section{Gas Cells}
+Gas Cells are glass cilinder with optical windows on its extremes. The glass has to be of very low thermal 
+expansion coefficient like \emph{borosilicate} (pyrex). (because is going to be glued to the optical windows therefore 
+it would create mechanical tension, optical properties, reduces the risk of breaking)
+\subsection{Iodine}
+\subsection{Other Gases}
+\subsection{Cell Heating}
+\begin{center}
+ \begin{figure}[h!]
+ \centering
+ \includegraphics[width=\columnwidth]{./img/diag_heatloss.png}
+ % diag_hardware.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+ \caption{Heat loss}
+ \label{fig:diag_heatloss}
+\end{figure}
+\end{center}
+
+
+
+\chapter{Experimental Design}
+
+\section{Hardware}
+\subsection{Optical Setup}
+\subsection{TheBox}
+\subsection{Monitoring and Control}
+\subsubsection{Raspberry Pi}
+\subsubsection{Arduino}
+\subsubsection{Custom PCB}
+\subsubsection{Thorlabs TC200}
+\subsubsection{USB Switchbox}
+
+\begin{center}
+ \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.9\columnwidth]{./img/diag_hardware.png}
+ % diag_hardware.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+ \caption{Hardware description}
+ \label{fig:diag_hardware}
+\end{figure}
+\end{center}
+
+
+
+\section{Software}
+\subsection{GNU/Linux}
+\subsection{Python}
+\subsection{Arduino}
+\subsection{ZMQ}
+\subsection{LAMP}
+LAMP stands for: \emph{Linux, Apache, MySQL and PHP} is a widely common combinations of tools for setting up a standard 
+web server
+\begin{center}
+ \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.9\columnwidth]{./img/diag_software.png}
+ % diag_hardware.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+ \caption{Software description}
+ \label{fig:diag_software}
+\end{figure}
+\end{center}
+\section{Instrument}
+\subsection{Fourier Transform Spectrograph}
+
+
+\chapter{Experimental Results}
+\section{Data Acquisition}
+\subsection{Dataset}
+\subsubsection{FTS}
+In order to fully characterize the gas cell behaviour with respect to temperature I performed the following 
+measurements using the FTS
+\begin{itemize}
+ \item Stability test over 12 hours at several temperatures such as: Ambient temperature aprox 22, 30, 
+40, 50, 60 FTS vacuum:
+ \item Heating up from ambient temperature up to 60 degree
+ \item Cooling down from 60 degree to ambient temperature
+ \item Long term (10 hours) measure from lab temperature up to 60 degree (too see how long does it takes to stabilize 
+line depth)
+\end{itemize}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Temp. & Stable & Duration & FTS Vacuum & FTS Pressure (hPa) & Date\\
+\hline
+30 & Yes & 5h & No & 1030.00 & 2015/08/21\\
+\hline
+30 & Yes & 5h & Yes & 0.262 & 2015/08/21\\
+\hline
+30 & Yes & 12h & Yes & 0.118 & 2015/08/22\\
+\hline
+40 & Yes & 12h & Yes & 0.0917 & 2015/08/24\\
+\hline           
+50 & Yes & 12h & Yes & 0.099 &2015/08/23 \\
+\hline          
+60 & Yes & 12h & Yes & 0.0917 & 2015/08/24\\
+\hline
+20 & No & 12h & Yes& 0.0901 &2015/08/25 \\
+\hline
+20-60 & Yes & 12h & Yes & 0.0779 & 2015/08/26\\
+\hline              
+60-20 & Yes & 12h & Yes & 0.0798 &2015/08/26 \\
+\hline
+%× & × & × & × & ×\\
+%\hline
+\end{tabular}
+\end{center}
+
+
+\section{Data Analysis}
+In order to process the FTS data I developed Python tools, the key features in mind where:
+\begin{itemize}
+ \item Wavenumber range cut
+ \item Spline Interpolation
+ \item Two Spectra Cross Correlation
+ \item Line Gaussian Fit
+\end{itemize}
+
+\section{Results}
+
+\chapter{Future Work}
+
+
+
+Text\dots
+\chapter{Results}
+Text\dots
+\chapter{Discussion}
+
+
+\appendix
+\chapter{erster Anhang}
+Text\dots
+\chapter{zweiter Anhang}
+Text\dots
+
+\cleardoublepage
+%% Bibliographie. Das Argument muss der Name der BIBTeX-Datenbank stehen.
+%% Ein Beispiel fuer eine solche Datenbank finden Sie in bthesis_datenbank.bib
+\bibliography{iodine} 
+
+\chapter*{Danksagung}
+Dank\dots
+
+%% Dieser Befehl MUSS am Ende stehen und erzeugt die Erklaerung ueber die
+%% benutzten Mittel
+\Declaration
+\end{document}

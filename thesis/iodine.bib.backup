@@ -1,0 +1,319 @@
+% This file was created with JabRef 2.10.
+% Encoding: UTF-8
+
+
+@InProceedings{2010aepr.confP...1A,
+  Title                    = {{Single Gas Absorption Cell for Wavelength Calibration in the H and K bands}},
+  Author                   = {{Anglada-Escude}, G. and {Plavchan}, P. and {Prato}, L. and {White}, R. and {Osterman}, S. and {Ciardi}, D. and {Beichman}, C. },
+  Booktitle                = {Astronomy of Exoplanets with Precise Radial Velocities},
+  Year                     = {2010},
+  Month                    = aug,
+  Pages                    = {1P},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2010aepr.confP...1A},
+  Eid                      = {P1}
+}
+
+@Article{2010ApJ...713..410B,
+  Title                    = {{The CRIRES Search for Planets Around the Lowest-mass Stars. I. High-precision Near-infrared Radial Velocities with an Ammonia Gas Cell}},
+  Author                   = {{Bean}, J.~L. and {Seifahrt}, A. and {Hartman}, H. and {Nilsson}, H. and {Wiedemann}, G. and {Reiners}, A. and {Dreizler}, S. and {Henry}, T.~J. },
+  Journal                  = {\apj},
+  Year                     = {2010},
+
+  Month                    = apr,
+  Pages                    = {410-422},
+  Volume                   = {713},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2010ApJ...713..410B},
+  Archiveprefix            = {arXiv},
+  Doi                      = {10.1088/0004-637X/713/1/410},
+  Eprint                   = {0911.3148},
+  Keywords                 = {instrumentation: spectrographs, stars: individual: GJ551 GJ 699 GJ 406 GJ 442B, stars: low-mass, techniques: radial velocities},
+  Primaryclass             = {astro-ph.EP}
+}
+
+@Article{1985OptL...10..321B,
+  Title                    = {{Absolute measurements of absorption at the iodine-laser frequency in atmospheric gases}},
+  Author                   = {{Bragg}, S.~L. and {Lawton}, S.~A. and {Wiswall}, C.~E.},
+  Journal                  = {Optics Letters},
+  Year                     = {1985},
+
+  Month                    = jul,
+  Pages                    = {321-323},
+  Volume                   = {10},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/1985OptL...10..321B},
+  Doi                      = {10.1364/OL.10.000321},
+  Keywords                 = {Absorption Cross Sections, Atmospheric Windows, Iodine Lasers, Laser Spectroscopy, Photoacoustic Spectroscopy, Atmospheric Windows, Carbon Dioxide, Cyclopropane, Fourier Transformation, Methane}
+}
+
+@Article{1975SSI.....1...91D,
+  Title                    = {{A rocket borne absorption cell for high resolution spectroscopy of the He I line at 584 A}},
+  Author                   = {{Delaboudiniere}, J.~P. and {Carabetian}, C.},
+  Journal                  = {Space Science Instrumentation},
+  Year                     = {1975},
+
+  Month                    = feb,
+  Pages                    = {91-110},
+  Volume                   = {1},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/1975SSI.....1...91D},
+  Keywords                 = {Absorption Spectroscopy, Atomic Spectra, Far Ultraviolet Radiation, Helium, Rocket-Borne Instruments, Solar Spectra, Calibrating, Curve Fitting, Design Analysis, Line Spectra, Optical Equipment, Rare Gases, Spectral Line Width, Spectral Resolution}
+}
+
+@InProceedings{2002cosp...34E1258E,
+  Title                    = {{The Calibration of Instruments for Atmospheric Ozone Measurements with a Sealed Ozone Cell: The OSIRIS/ODIN Spectrograph}},
+  Author                   = {{Evans}, W. and {Puckrin}, E.},
+  Booktitle                = {34th COSPAR Scientific Assembly},
+  Year                     = {2002},
+  Pages                    = {1258},
+  Series                   = {COSPAR Meeting},
+  Volume                   = {34},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2002cosp...34E1258E}
+}
+
+@Article{1976RScI...47..277F,
+  Title                    = {{Gas absorption cell photometer for rocket observations of local interstellar helium}},
+  Author                   = {{Freeman}, J. and {Bowyer}, S. and {Paresce}, F. and {Lampton}, M. },
+  Journal                  = {Review of Scientific Instruments},
+  Year                     = {1976},
+
+  Month                    = mar,
+  Pages                    = {277-281},
+  Volume                   = {47},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/1976RScI...47..277F},
+  Doi                      = {10.1063/1.1134631},
+  Keywords                 = {Absorption Spectroscopy, Gas Spectroscopy, Helium, Interstellar Gas, Photometers, Rocket-Borne Instruments, Astronomical Photometry, Atmospheric Scattering, Calibrating, Photosensitivity, Spectrophotometry}
+}
+
+@InProceedings{2009mss..confETH12H,
+  Title                    = {{Gas Cell Observations of Methanol from 0.6 to 1.9 Thz Using the Herschel Space Observatory Hifi Instrument}},
+  Author                   = {{Higgins}, R.~D. and {Pearson}, J.~C. and {Lord}, S.~D. and {Teyssier}, D.},
+  Booktitle                = {64th International Symposium On Molecular Spectroscopy},
+  Year                     = {2009},
+  Month                    = jun,
+  Pages                    = {12},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2009mss..confETH12H},
+  Keywords                 = {MINI-SYMPOSIUM: FIR/THz AIR/SPACE MISSIONS}
+}
+
+@InProceedings{2010stt..conf..390H,
+  Title                    = {{Calibration of the Herschel HIFI Instrument Using Gas Cell Measurements}},
+  Author                   = {{Higgins}, R.~D. and {Teyssier}, D. and {Pearson}, J.~C. and {Risacher}, C. and {Trappe}, N.~A.},
+  Booktitle                = {Twenty-First International Symposium on Space Terahertz Technology},
+  Year                     = {2010},
+  Month                    = mar,
+  Pages                    = {390-397},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2010stt..conf..390H}
+}
+
+@Article{1994Msngr..76...51K,
+  Title                    = {{A radial velocity search for extra-solar planets using an iodine gas absorption cell at the CAT+CES.}},
+  Author                   = {{K{\"u}rster}, M. and {Hatzes}, A.~P. and {Cochran}, W.~D. and {Pulliam}, C.~E. and {Dennerl}, K. and {D{\"o}bereiner}, S.},
+  Journal                  = {The Messenger},
+  Year                     = {1994},
+
+  Month                    = jun,
+  Pages                    = {51-55},
+  Volume                   = {76},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/1994Msngr..76...51K},
+  Keywords                 = {Planetary Companions: Detection}
+}
+
+@Article{2009ApJ...692.1590M,
+  Title                    = {{The Use of Absorption Cells as a Wavelength Reference for Precision Radial Velocity Measurements in the Near-Infrared}},
+  Author                   = {{Mahadevan}, S. and {Ge}, J.},
+  Journal                  = {ApJ},
+  Year                     = {2009},
+
+  Month                    = feb,
+  Pages                    = {1590-1596},
+  Volume                   = {692},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2009ApJ...692.1590M},
+  Archiveprefix            = {arXiv},
+  Doi                      = {10.1088/0004-637X/692/2/1590},
+  Eprint                   = {0810.5342},
+  Keywords                 = {instrumentation: spectrographs, methods: data analysis, stars: kinematics, techniques: radial velocities, techniques: spectroscopic}
+}
+
+@Article{1992PASP..104..270M,
+  Title                    = {{Precision radial velocities with an iodine absorption cell}},
+  Author                   = {{Marcy}, G.~W. and {Butler}, R.~P.},
+  Journal                  = {\pasp},
+  Year                     = {1992},
+
+  Month                    = apr,
+  Pages                    = {270-277},
+  Volume                   = {104},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/1992PASP..104..270M},
+  Doi                      = {10.1086/132989},
+  Keywords                 = {Absorption Spectra, Brown Dwarf Stars, Companion Stars, Iodine, Radial Velocity, Stellar Spectra, Charge Coupled Devices, High Resolution, Line Spectra, Point Spread Functions, Spectral Line Width, Spectral Resolution, Spectrographs}
+}
+
+@Article{2003GeCAS..67Q.367O,
+  Title                    = {{Long-path gas cell infrared spectroscopy of volatile organic pollutants}},
+  Author                   = {{Otsuka}, T. and {Nakashima}, S. and {Miwa}, S. and {Sunose}, M. },
+  Journal                  = {Geochimica et Cosmochimica Acta Supplement},
+  Year                     = {2003},
+
+  Month                    = sep,
+  Pages                    = {367},
+  Volume                   = {67},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2003GeCAS..67Q.367O}
+}
+
+@InProceedings{2013SPIE.8864E..1JP,
+  Title                    = {{Precision near-infrared radial velocity instrumentation I: absorption gas cells}},
+  Author                   = {{Plavchan}, P.~P. and {Anglada-Escude}, G. and {White}, R. and {Gao}, P. and {Davison}, C. and {Mills}, S. and {Beichman}, C. and {Brinkworth}, C. and {Johnson}, J. and {Bottom}, M. and {Ciardi}, D. and {Wallace}, K. and {Mennesson}, B. and {von Braun}, K. and {Vasisht}, G. and {Prato}, L. and {Kane}, S. and {Tanner}, A. and {Walp}, B. and {Crawford}, S. and {Lin}, S.},
+  Booktitle                = {Society of Photo-Optical Instrumentation Engineers (SPIE) Conference Series},
+  Year                     = {2013},
+  Month                    = sep,
+  Pages                    = {1},
+  Series                   = {Society of Photo-Optical Instrumentation Engineers (SPIE) Conference Series},
+  Volume                   = {8864},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2013SPIE.8864E..1JP},
+  Archiveprefix            = {arXiv},
+  Doi                      = {10.1117/12.2023690},
+  Eid                      = {88641J},
+  Eprint                   = {1309.2992},
+  Primaryclass             = {astro-ph.IM}
+}
+
+@Article{2003AdSpR..32.2153P,
+  Title                    = {{The calibration of instruments for atmospheric ozone measurement with a sealed ozone cell: The OSIRIN/ODIN spectrograph}},
+  Author                   = {{Puckrin}, E. and {Evans}, W.~F.~J.},
+  Journal                  = {Advances in Space Research},
+  Year                     = {2003},
+
+  Month                    = dec,
+  Pages                    = {2153-2158},
+  Volume                   = {32},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2003AdSpR..32.2153P},
+  Doi                      = {10.1016/S0273-1177(03)90537-0}
+}
+
+@InProceedings{Seifahrt2010,
+  Title                    = {{The CRIRES Search for Planets Around the Lowest-Mass Stars: High-Precision nIR Radial Velocities with a New Gas Cell}},
+  Author                   = {{Seifahrt}, A. and {Bean}, J. and {Hartman}, H. and {Nilsson}, H. and {Wiedemann}, G. and {Reiners}, A. and {Dreizler}, S. and {Henry}, T. },
+  Booktitle                = {American Astronomical Society Meeting Abstracts 215},
+  Year                     = {2010},
+  Month                    = {Jan},
+  Pages                    = {421.14},
+  Series                   = {Bulletin of the American Astronomical Society},
+  Volume                   = {42},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2010AAS...21542114S}
+}
+
+@Article{2011PhRvL.107n3901S,
+  Title                    = {{Disordered, Strongly Scattering Porous Materials as Miniature Multipass Gas Cells}},
+  Author                   = {{Svensson}, T. and {Adolfsson}, E. and {Lewander}, M. and {Xu}, C.~T. and {Svanberg}, S.},
+  Journal                  = {Physical Review Letters},
+  Year                     = {2011},
+
+  Month                    = sep,
+  Number                   = {14},
+  Pages                    = {143901},
+  Volume                   = {107},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2011PhRvL.107n3901S},
+  Archiveprefix            = {arXiv},
+  Doi                      = {10.1103/PhysRevLett.107.143901},
+  Eid                      = {143901},
+  Eprint                   = {1011.0900},
+  Keywords                 = {Wave propagation in random media, Sensors, remote sensing, Laser spectroscopy},
+  Primaryclass             = {physics.optics}
+}
+
+@InProceedings{2007fgrq.conf..233T,
+  Title                    = {{Sub-Doppler Laser Spectroscopy in Thin Gas Cells}},
+  Author                   = {{Tajalli}, H. and {Ahmadi}, S.},
+  Booktitle                = {Frontiers in General Relativity and Quantum Cosmological Research: Horizons in World Physics},
+  Year                     = {2007},
+  Editor                   = {{Marselle}, V.~H.},
+  Pages                    = {233},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2007fgrq.conf..233T}
+}
+
+@InProceedings{2010hsa5.conf..543V,
+  Title                    = {{Gas Cell Development for Infrared Spectra Calibration}},
+  Author                   = {{Valdivielso}, L. and {Esparza}, P. and {Mart{\'{\i}}n}, E.~L. },
+  Booktitle                = {Highlights of Spanish Astrophysics V},
+  Year                     = {2010},
+  Editor                   = {{Diego}, J.~M. and {Goicoechea}, L.~J. and {Gonz{\'a}lez-Serrano}, J.~I. and {Gorgas}, J.},
+  Pages                    = {543},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2010hsa5.conf..543V},
+  Doi                      = {10.1007/978-3-642-11250-8_168},
+  Keywords                 = {Physics}
+}
+
+@Article{2010ApJ...715.1366V,
+  Title                    = {{A New Gas Cell for High-precision Doppler Measurements in the Near-infrared}},
+  Author                   = {{Valdivielso}, L. and {Esparza}, P. and {Mart{\'{\i}}n}, E.~L. and {Maukonen}, D. and {Peale}, R.~E.},
+  Journal                  = {\apj},
+  Year                     = {2010},
+
+  Month                    = jun,
+  Pages                    = {1366-1369},
+  Volume                   = {715},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2010ApJ...715.1366V},
+  Archiveprefix            = {arXiv},
+  Doi                      = {10.1088/0004-637X/715/2/1366},
+  Eprint                   = {1004.2789},
+  Keywords                 = {instrumentation: spectrographs, stars: low-mass, techniques: radial velocities},
+  Primaryclass             = {astro-ph.IM}
+}
+
+@InProceedings{2011EPJWC..1602008V,
+  Title                    = {{Development of gas absorption cells for infrared echelle spectrographs}},
+  Author                   = {{Valdivielso}, L. and {Esparza}, P. and {Mart{\'{\i}}n}, E.~L. and {Peale}, R.~E. and {Maukonen}, D.},
+  Booktitle                = {European Physical Journal Web of Conferences},
+  Year                     = {2011},
+  Month                    = jul,
+  Pages                    = {2008},
+  Series                   = {European Physical Journal Web of Conferences},
+  Volume                   = {16},
+
+  Adsnote                  = {Provided by the SAO/NASA Astrophysics Data System},
+  Adsurl                   = {http://adsabs.harvard.edu/abs/2011EPJWC..1602008V},
+  Doi                      = {10.1051/epjconf/20111602008},
+  Eid                      = {02008}
+}
+
+@Article{,
+  Owner                    = {storres},
+  Timestamp                = {2015.08.21}
+}
+

@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: bthesis_astro.aux
+The style file: doktor_natb_bab_amp.bst
+A level-1 auxiliary file: instructions_source.aux
+Database file #1: iodine.bib
+You've used 2 entries,
+            2986 wiz_defined-function locations,
+            664 strings with 5591 characters,
+and the built_in function-call counts, 824 in all, are:
+= -- 79
+> -- 31
+< -- 2
++ -- 16
+- -- 9
+* -- 64
+:= -- 152
+add.period$ -- 4
+call.type$ -- 2
+change.case$ -- 11
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 42
+empty$ -- 58
+format.name$ -- 15
+if$ -- 157
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 2
+newline$ -- 16
+num.names$ -- 8
+pop$ -- 17
+preamble$ -- 1
+purify$ -- 11
+quote$ -- 0
+skip$ -- 34
+stack$ -- 0
+substring$ -- 24
+swap$ -- 9
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 18
+warning$ -- 0
+while$ -- 6
+width$ -- 0
+write$ -- 30

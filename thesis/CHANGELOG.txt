@@ -1,0 +1,24 @@
+Log file containing the changes in bthesis_astro.tex compared to the original version by Thomas Pruschke (obtainable via http://www.uni-goettingen.de/de/206862.html).
+
+
+------ bthesis_astro.tex: -------------------------------------------------------------------------------
+- \Institute{Institut f\"ur theoretische Physik} --> \Institute{Institut f\"ur Astrophysik}
+- \documentclass[...]{GAUBM} --> \documentclass[...]{GAUBM_astro}
+- Modification and extension of the documentation text. There are additional info about the citation rules
+  in astrophysics and other hints.
+- \bibliographystyle{plainnat} --> \bibliographystyle{doktor_natb_bab_amp}
+- \usepackage[comma,numbers,sort&compress]{natbib} --> \usepackage[comma,sort&compress]{natbib}
+- sections "Selbst hinzugefuegte Pakete" and "Eigene Befehle" in preamble
+- insert \usepackage{aas_macros}
+
+
+
+
+------ GAUBM_astro.cls: ---------------------------------------------------------------------------------
+- Includegraphics: now Logo_Uni_Goett_1200dpi_cmyk.JPG and IAG_LogoRGB.jpg
+- Spelling of "referee" corrected
+- \ProvidesClass{GAUBM} --> \ProvidesClass{GAUBM_astro}
+
+
+------ bthesis_datenbank.bib: ---------------------------------------------------------------------------
+- Bibtex entries replaced

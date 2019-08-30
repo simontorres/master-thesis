@@ -1,0 +1,109 @@
+This is a directory containing a LaTeX template for the preparation of a Bachelor
+or Master thesis at the "Institut fuer Astrophysik". The following files should
+be included:
+
+README
+CHANGELOG.txt
+GAUBM_astro.cls
+aas_macros.sty
+babelbst.tex
+bthesis_astro.pdf
+bthesis_astro.tex
+bthesis_datenbank.bib
+datenumber.sty
+datenumberUSenglish.ldf
+datenumberdummy.ldf
+datenumberenglish.ldf
+datenumberfrench.ldf
+datenumbergerman.ldf
+datenumberspanish.ldf
+doktor_natb_bab_amp.bst
+figures/bild.eps
+figures/bild.pdf
+figures/IAG_LogoRGB.eps
+figures/IAG_LogoRGB.gif
+figures/IAG_LogoRGB.jpg
+figures/Logo_Physik_links.eps
+figures/Logo_Physik_links.pdf
+figures/Logo_Uni_Goett_1200dpi_cmyk.JPG
+figures/Logo_Uni_Goettingen.eps
+figures/Logo_Uni_Goettingen.pdf
+
+For compiling bthesis_astro.tex, you can use an editor like "Kile" or do it
+manually with the following command list (WARNING: you need to use EPS graphics
+for the university and institute logos on the title page - change this in 
+GAUBM_astro.cls, lines 182 to 191):
+
+latex bthesis_astro
+bibtex bthesis_astro
+latex bthesis_astro
+latex bthesis_astro
+
+You may use "pdflatex" as well but can't include postscript images then. However,
+you can convert eps or ps files into pdf format via "epstopdf".
+
+If there are things that don't work or you have comments or ideas, please feel
+free to contact
+jlangfe@astro.physik.uni-goettingen.de
+
+Of course, you may also use the original template maintained by Thomas Pruschke
+and modify it yourself.
+You can download it on the website of the Faculty for Physics:
+http://www.uni-goettingen.de/de/206862.html
+
+
+=================================================================================
+=================================================================================
+THE ORIGINAL README:
+
+This directory contains the class for the preparation of a Bachelor or
+Master thesis according to the "Prueungsordnung fuer den Bachelor of
+Science Physik und Master of Science Physik". You should have obtained the
+following files:
+
+README
+GAUBM.cls
+bthesis.pdf
+bthesis.tex
+bthesis_datenbank.bib
+datenumber.sty
+datenumberUSenglish.ldf
+datenumberdummy.ldf
+datenumberenglish.ldf
+datenumberfrench.ldf
+datenumbergerman.ldf
+datenumberspanish.ldf
+figures/bild.eps
+figures/bild.pdf
+figures/phi.eps
+figures/phi.pdf
+figures/unilogo_links.eps
+figures/unilogo_links.pdf
+
+To compile the file bthesis.tex, just give the following commands:
+
+latex bthesis
+bibtex bthesis
+latex bthesis
+latex bthesis
+
+You now should have produced a valid DVI file you can look at with xdvi.
+In case you encounter any trouble with missing packages, ask your administrator
+to install these packages or download them and install them in the directory
+these files reside in.
+
+The file bthesis_datenbank.bib conains a small example for a BIBTeX database for
+creating citations automatically. It is a good idea to create and maintain such a
+database or add your citations to an exisiting database. Ask your supervisor for
+help.
+
+Take a careful look at the file bthesis.tex and the properly compiled result in the
+supplied bthesis.pdf. It explains all necessary commands to cite, create formulae,
+tables and figures from postscript. 
+
+NOTE: If you intend to use PDFLaTex, you cannot include Postscript figures, but only
+PDF. The tool epstopdf may be helpful here ...
+
+Now have fun and good luck with your thesis! If you have any comments or suggestions
+send them to 
+pruschke@theorie.physik.uni-goettingen.de
